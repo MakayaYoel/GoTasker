@@ -13,7 +13,10 @@ import (
 	"github.com/joho/godotenv"
 )
 
-var workerAmount int
+var (
+	workerAmount int
+	runTime      int
+)
 
 func init() {
 	// Load Environment Variable
@@ -31,7 +34,18 @@ func init() {
 		log.Fatalf("There was an error trying to convert the value of WORKER_AMOUNT into an int: %s", err.Error())
 	}
 
+	runTimeEnv, ok := os.LookupEnv("RUN_TIME")
+	if !ok {
+		log.Fatal("Please specify a RUN_TIME in your environment file.")
+	}
+
+	intRunTimeEnv, err := strconv.Atoi(runTimeEnv)
+	if err != nil {
+		log.Fatalf("There was an error trying to convert the value of RUN_TIME into an int: %s", err.Error())
+	}
+
 	workerAmount = intWorkerAmountEnv
+	runTime = intRunTimeEnv
 }
 
 func main() {
@@ -43,11 +57,11 @@ func main() {
 		worker.Start()
 	}
 
-	// Send tasks for 1 minute
+	// Send tasks for runTime seconds
 	var tasksProcessed int
 	startTime := time.Now()
 	for {
-		if time.Since(startTime).Minutes() >= 1 {
+		if time.Since(startTime).Seconds() >= float64(runTime) {
 			break
 		}
 

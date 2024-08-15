@@ -14,7 +14,7 @@ git clone https://github.com/MakayaYoel/GoTasker.git
 cd GoTasker
 ```
 
-Before running the project, make sure to rename the `.env.example` file to `.env`, and adjust the worker amount in the file to your liking.
+Before running the project, make sure to rename the `.env.example` file to `.env`. Inside the file, you can adjust the worker amount and run time for testing to your liking.
 
 Finally, run the project using the following command:
 ```bash
