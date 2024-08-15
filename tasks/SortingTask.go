@@ -27,7 +27,7 @@ func (sT *sortingTask[T]) Execute() error {
 		}
 	}
 
-	fmt.Printf("Successfully sorted dataset: %v", sT.dataset)
+	fmt.Printf("Successfully sorted dataset: %v\n", sT.dataset)
 
 	return nil
 }

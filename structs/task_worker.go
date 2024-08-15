@@ -27,9 +27,9 @@ func (tW *taskWorker) Start() {
 			err := task.Execute()
 
 			if err != nil {
-				log.Printf("\nTask Worker (ID: %d) has encountered an error while executing a task: %s", tW.id, err.Error())
+				log.Printf("Task Worker (ID: %d) has encountered an error while executing a task: %s", tW.id, err.Error())
 			} else {
-				log.Printf("\nTask Worker (ID: %d) has successfully executed a task.", tW.id)
+				log.Printf("Task Worker (ID: %d) has successfully executed a task.", tW.id)
 			}
 
 			tW.taskQueue.waitGroup.Done()
