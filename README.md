@@ -20,3 +20,6 @@ Finally, run the project using the following command:
 ```bash
 go run main.go
 ```
+
+## Credits
+- [Implementing a distributed task queue in Go](https://reintech.io/blog/implementing-distributed-task-queue-go) by Arthur C. Codex
