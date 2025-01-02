@@ -12,7 +12,7 @@ func NewAPIRequestTask() *apiRequestTask {
 	return &apiRequestTask{}
 }
 
-// Execute calls a cat fact API and prints the result.
+// Execute simulates an API request
 func (aRT *apiRequestTask) Execute() error {
 	time.Sleep(500 * time.Millisecond) // simulate API request delay
 	fmt.Println("Finished API Request.")
